@@ -13,6 +13,7 @@ connectDB();
 
 // MIddlewares
 app.use(cors())
+app.use(express.json())
 
 app.use("/dashboard",serviceRoutes)
 
