@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv"
 import connectDB from "./Database/db";
 import cors from "cors";
+import serviceRoutes from "./Routes/serviceResult"
 
 
 const app = express();
@@ -13,11 +14,7 @@ connectDB();
 // MIddlewares
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-console.log("MONGO_URI from env: ", process.env.MONGO_URI);
+app.use("/dashboard",serviceRoutes)
 
 
 const PORT = process.env.PORT;
